@@ -1,0 +1,38 @@
+export const initialTrades = [
+	{
+		tradeId: 'T1',
+		version: '1',
+		counterPartyId: 'C1',
+		bookId: 'B1',
+		maturityDate: new Date(2020, 5, 20),
+		createdDate: new Date(2020, 4, 20),
+		expired: false,
+	},
+	{
+		tradeId: 'T2',
+		version: '2',
+		counterPartyId: 'C2',
+		bookId: 'B1',
+		maturityDate: new Date(2021, 5, 21),
+		createdDate: new Date(2020, 4, 20),
+		expired: false,
+	},
+	{
+		tradeId: 'T3',
+		version: '1',
+		counterPartyId: 'C3',
+		bookId: 'B1',
+		maturityDate: new Date(2021, 5, 21),
+		createdDate: new Date(2020, 4, 20),
+		expired: false,
+	},
+	{
+		tradeId: 'T4',
+		version: '2',
+		counterPartyId: 'C3',
+		bookId: 'B1',
+		maturityDate: new Date(2022, 6, 21),
+		createdDate: new Date(2020, 4, 20),
+		expired: false,
+	},
+];
