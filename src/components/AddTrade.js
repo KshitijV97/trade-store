@@ -19,13 +19,13 @@ function AddTrade({
 
 	const formatToDate = (input) => {
 		const day = input.slice(8, 11);
-		// console.log('Day is', day);
+		console.log('Day is', day);
 		const month = input.slice(5, 7);
-		// console.log('Month is', month);
+		console.log('Month is', month);
 		const year = input.slice(0, 4);
-		// console.log('Year is', year);
-		// console.log('Formatted date is', new Date(year, month, day));
-		return new Date(year, month, day);
+		console.log('Year is', year);
+		console.log('Formatted date is', new Date(year, month -1, day));
+		return new Date(year, month - 1, day);
 	};
 
 	const addNewTrade = () => {
@@ -48,10 +48,11 @@ function AddTrade({
 		const formattedMaturityDate = formatToDate(trade.maturityDate);
 		const createdDate = new Date();
 
-		if (createdDate.getTime() >= formattedMaturityDate.getTime()) {
-			alert('Maturity date should be after created Date');
-			return;
-		}
+		// if (createdDate.getTime() >= formattedMaturityDate.getTime()) {
+		// 	alert('Maturity date should be after created Date');
+		// 	return;
+		// }
+		// This is handled in addTrade()
 
 		trade.maturityDate = formattedMaturityDate;
 		trade.createdDate = createdDate;
@@ -173,7 +174,6 @@ function AddTrade({
 					onChange={(event) =>
 						setTrade({ ...trade, maturityDate: event.target.value })
 					}
-					placeholder='YYYY/MM/DD'
 				/>
 			</div>
 			<div
