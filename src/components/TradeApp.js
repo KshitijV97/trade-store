@@ -16,7 +16,7 @@ function TradeApp() {
 	}, []);
 
 	useEffect(() => {
-		console.log('Rejected trades are', rejectedTrades);
+		console.log('LOGS | TradeApp | Rejected trades are', rejectedTrades);
 	}, [rejectedTrades]);
 
 	// To update the expiry flag
@@ -83,6 +83,7 @@ function TradeApp() {
 						createdDate: trade.createdDate
 							.toISOString()
 							.substring(0, 10),
+						expired: trade.expired ? '-' : '-',
 					};
 				})}
 				columns={COLUMNS}
@@ -106,18 +107,7 @@ export default TradeApp;
  */
 
 /**
- * Check if 1st Trade is added.
-Check if Version is high the list will be updated.
-Check if Version is same the list will be updated.
-Check if Version is low the trade will be rejected.
-Check if maturity Date is greater than todays date the trade is added.
-Check if maturity Date is lower than todays date the Trade will not be added.
 Check if Version is Same and date is lower the trade is not updated.
 Check if Maturity Date is Same as Todays Date the list will be added.
 Check if version is high but maturity date is low the trade will be rejected.
-Check If Maturity Date is Expired it will update the Expired Flag
-Check with T1 1 CP-1 B1 20/05/2020 N
-Check With T2 2 CP-2 B1 20/05/2021 N
-Check With T2 1 CP-1 B1 20/05/2021 14/03/2015 N
-Check Expired T3 3 CP-3 B2 20/05/2014 Y
  */
