@@ -3,7 +3,7 @@ import { useTable } from 'react-table';
 import './table.css';
 
 function BasicTable({ columns, data }) {
-	console.log('Logging data received to render table', data);
+	console.log('LOGS | BasicTable | Logging data received to render table', data);
 	// Use the state and functions returned from useTable to build your UI
 	const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
 		useTable({
