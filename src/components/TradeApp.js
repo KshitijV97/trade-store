@@ -3,6 +3,7 @@ import { initialTrades } from '../constants/initialTrades';
 import AddTrade from './AddTrade';
 import BasicTable from './Table/BasicTable';
 import { COLUMNS } from '../constants/tableColumns';
+import moment from 'moment';
 
 function TradeApp() {
 	const [tradeStore, setTradeStore] = useState([]);
@@ -60,29 +61,28 @@ function TradeApp() {
 				data={tradeStore.map((trade) => {
 					return {
 						...trade,
-						maturityDate: trade.maturityDate
-							.toISOString()
-							.substring(0, 10),
-						createdDate: trade.createdDate
-							.toISOString()
-							.substring(0, 10),
+						maturityDate: moment(trade.maturityDate).format(
+							'YYYY/MM/DD'
+						),
+						createdDate: moment(trade.createdDate).format(
+							'YYYY/MM/DD'
+						),
 						expired: trade.expired ? 'EXPIRED' : 'ACTIVE',
 					};
 				})}
 				columns={COLUMNS}
-				
 			/>
 			<h2 style={{ fontSize: '1.5rem' }}>Rejected trades</h2>
 			<BasicTable
 				data={rejectedTrades.map((trade) => {
 					return {
 						...trade,
-						maturityDate: trade.maturityDate
-							.toISOString()
-							.substring(0, 10),
-						createdDate: trade.createdDate
-							.toISOString()
-							.substring(0, 10),
+						maturityDate: moment(trade.maturityDate).format(
+							'YYYY/MM/DD'
+						),
+						createdDate: moment(trade.createdDate).format(
+							'YYYY/MM/DD'
+						),
 						expired: trade.expired ? '-' : '-',
 					};
 				})}
